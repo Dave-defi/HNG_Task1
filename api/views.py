@@ -17,7 +17,7 @@ class HelloView(View):
         city = location_info.get('city')
         loc = location_info.get('loc')
 
-        weather_url = f'http://api.openweathermap.org/data/2.5/weather?lat={loc.split(",")[0]}&lon={loc.split(",")[1]}&appid={OPENWEATHERMAP_API_KEY}&units=metric'
+        weather_url = f'http://api.openweathermap.org/data/2.5/weather?lat={loc.split(",")[0]}&lon={loc.split(",")[1]}&appid={OPENWEATHERMAP_API_KEY}'
         weather_info = requests.get(weather_url).json()
         temperature = weather_info['main']['temp']
 
@@ -30,3 +30,6 @@ class HelloView(View):
         }
 
         return JsonResponse(response)
+    
+
+   
